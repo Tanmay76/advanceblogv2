@@ -3,7 +3,7 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png">     --> 
     <h1>{{ $route.params.id }}</h1>
     <Left @sendData="sendData"></Left>
-    <Right :blog="mainData"></Right>    
+    <Right :bid="mainid"></Right>    
   </div>
     
 </template>
@@ -14,16 +14,15 @@ import Right from '@/components/Right.vue'
 export default {
   name: 'App',
   components: {
-    // HelloWorld
     Left,
     Right
   },
   data(){
-    return{mainData:Object}
+    return{mainid:null}
   },
   methods:{
-    sendData:function(blg){
-      this.mainData=blg
+    sendData:function(blgid){
+      this.mainid=blgid
     }
   } 
   

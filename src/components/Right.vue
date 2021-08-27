@@ -1,19 +1,24 @@
 <template>
     <div class="split right">
-       <h3>{{blog.title}}</h3> 
-       <p>{{blog.content}}</p>
-       <button v-if="blog.title!=null" class="button" @click="incLike()">Like</button><p>{{blog.like}}</p>
+       <h3>{{getdata(bid).title}}</h3> 
+       <p>{{getdata(bid).content}}</p>
+       <button v-if="getdata(bid).title!=null" class="button" @click="incLike()">Like</button><p>{{getdata(bid).like}}</p>
        <button @click="logout">Logout</button>
     </div>
 </template>
 <script>
+import {mapGetters} from 'vuex'
 export default({
     props:{
-        blog:Object
+        bid:null
+    },
+    computed:{
+        ...mapGetters('blogdata',['getdata'])
+        
     },
     methods:{
         incLike:function(){
-            this.blog.like++
+            this.$store.commit('blogdata/incLike', this.bid);
         },
         logout:function(){
             this.$store.state.cookey=null

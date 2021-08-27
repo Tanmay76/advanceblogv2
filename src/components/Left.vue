@@ -1,27 +1,22 @@
-<template>
+<template>    
     <div class="split left">
         <h5>
             Blog List
         </h5>
         <ul v-for="b in blog" :key="b.id">
-            <li style="cursor:pointer" @click="sendData(b.id)">{{b.title}}</li>            
+            <li style="cursor:pointer" @click="sendData(b.id)">{{b.title}}</li>           
         </ul>
     </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default({
-    data() {
-        return{blog:[
-            {id:0,title:'Blog 1', content:'content of blog one', like:0},
-            {id:1,title:'Blog 2', content:'content of blog two', like:0},
-            {id:2,title:'Blog 3', content:'content of blog three', like:0},
-            {id:3,title:'Blog 4', content:'content of blog four', like:0}
-        ]}
-        
+    computed:{
+        ...mapState('blogdata',['blog'])
     },
     methods:{
         sendData: function(id){
-            this.$emit("sendData",this.blog[id])
+            this.$emit("sendData",id)
         }
     }
 })
