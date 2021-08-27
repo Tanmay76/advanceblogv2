@@ -24,7 +24,7 @@ export default ({
                 this.value=this.$store.state.user[i]                 
                 if (this.value.username==this.name){
                     this.$store.state.cookey=this.value.username
-                    this.$router.push({path:`/Blog/${this.value.email}`});
+                    this.$router.push({path:`/Blog/${this.value.username}`});
                 }
             }    
                         

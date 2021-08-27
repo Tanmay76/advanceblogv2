@@ -1,9 +1,9 @@
 <template>
     <div class="split right">
+       <button @click="logout">Logout</button>
        <h3>{{getdata(bid).title}}</h3> 
        <p>{{getdata(bid).content}}</p>
        <button v-if="getdata(bid).title!=null" class="button" @click="incLike()">Like</button><p>{{getdata(bid).like}}</p>
-       <button @click="logout">Logout</button>
     </div>
 </template>
 <script>
@@ -11,7 +11,7 @@ import {mapGetters} from 'vuex'
 export default({
     props:{
         bid:null
-    },
+    },    
     computed:{
         ...mapGetters('blogdata',['getdata'])
         

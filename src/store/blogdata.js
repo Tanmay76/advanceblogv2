@@ -13,7 +13,9 @@ export default{
             let blogindx=state.blog.findIndex(b => b.id == id)
             state.blog[blogindx].like++;
         },
-        
+        addBlog(state, Blog){
+            state.blog.push(Blog)
+        }
     },
     getters:{
        getdata: (state)=>(id)=>{

@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png">     --> 
     <h1>{{ $route.params.id }}</h1>
-    <Left @sendData="sendData"></Left>
+    <Left :namev="value" @sendData="sendData"></Left>
     <Right :bid="mainid"></Right>    
   </div>
     
@@ -18,7 +18,7 @@ export default {
     Right
   },
   data(){
-    return{mainid:null}
+    return{mainid:null, value:this.$route.params.id}
   },
   methods:{
     sendData:function(blgid){
